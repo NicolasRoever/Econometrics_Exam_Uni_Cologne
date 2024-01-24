@@ -28,7 +28,7 @@ source(path(MAIN_DIRECTORY_PATH, "Exam_2023a", "Case_1_main-functions.R"))
 ################################################################################
 ##Load and Clean Data
 
-Data_Path = list.files(path = path(MAIN_DIRECTORY_PATH, "Exam_2023", "Data", "Case_2"),
+Data_Path = list.files(path = path(MAIN_DIRECTORY_PATH, "Exam_2023a", "Data", "Case_2"),
                                  pattern = ".csv", full.names = TRUE)
 
 house_df <- import(Data_Path) 
@@ -37,6 +37,7 @@ check_if_columns_are_numeric_or_integer(house_df)
 
 check_for_nas_in_df(house_df)
 
+house_df <- na.omit(house_df)
 
 ################################################################################
 ##Task a)
@@ -91,5 +92,18 @@ margins(probit_model)
 ################################################################################
 ##Task d)
 
+cnorm
 
-#SKIPPED
+
+#I am 
+
+################################################################################
+##Task e)
+
+compute_probit_confusion_matrix(probit_model, house_df, "own_house")
+
+false_positives = 1212/4354
+false_negatives = 544/1030
+
+#The model has a lot of false positives. Thus, increasing the threshhold from 
+#0.5 might be a good idea. 

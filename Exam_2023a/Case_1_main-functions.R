@@ -44,7 +44,7 @@ check_if_columns_are_numeric_or_integer <- function(my_data) {
 
 check_for_nas_in_df <- function(data) {
   if (any(is.na(data))) {
-    stop("Error: The data frame contains NA values.")
+    message("Careful: The data frame contains NA values.")
   } else {
     message("No NA values found in the data frame.")
   }
