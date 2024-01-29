@@ -14,9 +14,9 @@ run_standardized_regression<- function(data, regression_formula){
   #' @return a regression model object
   
   regression_formula <- as.formula(regression_formula)
+  
   standardized_data <- as.data.frame(scale(data))
   
-
   regression_model <- lm(regression_formula, data = standardized_data)
   
   return(regression_model)
