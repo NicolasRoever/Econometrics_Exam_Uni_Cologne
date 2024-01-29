@@ -18,6 +18,7 @@ library(tidyverse)
 library(lmtest)
 library(car)
 library(tseries)
+library(dynlm)
 source(path(MAIN_DIRECTORY_PATH, "Exam_2023b", "Case_1_main-functions.R"))
 
 ################################################################################
@@ -81,9 +82,35 @@ sum(ifelse((demand_model$residuals)^2 > residual_variance *10, 1, 0))
 #p-value for the jarque.bera.test would be much higher. 
 
 ################################################################################
-##Task c)
+##Task d)
 
 #Chow test was not covered this semester
 
 ################################################################################
-##Task d)
+##Task e)
+
+milk_df["log_Sales_lag_1"] <- create_lag_of_variable(milk_df$log_Sales, -1)
+milk_df["log_Sales_lag_2"] <- create_lag_of_variable(milk_df$log_Sales, -2)
+
+adl_2_0_model <- dynlm(log_Sales ~ log_Sales_lag_1 + log_Sales_lag_2 + log(PRICE) + log(PRICE_FM) + log(PROMOTION), 
+                       data = milk_df)
+
+summary(adl_2_0_model)
+
+sum_y_coefficients = summary(adl_2_0_model)$coefficients["log_Sales_lag_1", "Estimate"] +
+                      summary(adl_2_0_model)$coefficients["log_Sales_lag_2", "Estimate"]
+
+long_run_price_coefficient = summary(adl_2_0_model)$coefficients["log(PRICE)", "Estimate"] /
+                              (1-sum_y_coefficients) 
+
+long_run_price_coefficient*10
+
+#I am not sure if this is correct! But, I obtain that increasing the own price
+#by 10% decreases the long-run demand by 38.37%.
+#The p-value of the coefficient for log(PRICE) is < 2e-16 (see the summary 
+#of the output). Thus, the effect of log(PRICE) is significantly different
+#from 0 at the 5% level. 
+
+
+
+
