@@ -1,4 +1,4 @@
-# Econometrics_Exam University of Cologne
+# Econometrics Exam University of Cologne
 This is the code I prepared for the exam in Advanced Econometrics on February 5th
 2024 at the University of Cologne with Prof. Breitung.
 
