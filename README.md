@@ -15,7 +15,7 @@ Then, you should be ready to solve the questions :).
 ## Contents
 
 1. main_question1_exam_2024.R/main_question2_exam_2024.R: The scripts are where 
-I intend to solve the questions
+I solved the questions.
 
 2. functions_exam_2024.R: The script contains all functions I used when solving the 
 previous exams - feel free to use them or delete them if they confuse you
