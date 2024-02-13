@@ -1,4 +1,4 @@
-# Econometrics_Exam University of Cologne
+# Econometrics Exam University of Cologne
 This is the code I prepared for the exam in Advanced Econometrics on February 5th
 2024 at the University of Cologne with Prof. Breitung.
 
@@ -6,10 +6,10 @@ This is the code I prepared for the exam in Advanced Econometrics on February 5t
 
 The folder is the code to bring to the exam. During the exam, place the data for 
 question 1 in the folder data/question1 and the data for question 2 in the folder
-data/question2. \\
+data/question2. \
 The scripts main_question1_exam_2024.R and main_question2_exam_2024.R are the place
 to solve the questions. The scripts load all packages required in last years exam
-and automatically load the data. \\
+and automatically load the data. \
 Then, you should be ready to solve the questions :). 
 
 ## Contents
